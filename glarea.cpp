@@ -99,7 +99,7 @@ void GLArea::makeGLObjects()
         for(int j = 0; j < 500; j++){
             float elev = int(dem->getNormalizedElevationAt(i,j));
             pos.push_back({i/10.0f, elev/10.0f, j/10.0f});
-           /* if(elev > 0){
+           /*if(elev > 0){
                 for(float k = elev; k > 0; k--){
                     pos.push_back({i/10.0f, k/10.0f, j/10.0f});
                 }

@@ -31,70 +31,76 @@ void gl_point::createGlObject(){
     std::vector<GLfloat> vertices;
     std::vector<GLfloat> colors;
 
+    QVector3D color = colr;
+
     std::cout << "nombre de pos : " << posInit.size() << std::endl;
 
     for(int i = 0; i < posInit.size(); i++){
         //face du bas
+        color = colr;
+        color[2] = posInit[i][1]/25;
+        color[1] -= posInit[i][1]/25;
+
         QVector3D coord(posInit[i][0] - hauteur, posInit[i][1] - hauteur, posInit[i][2] - hauteur);
-        createPoint(vertices, colors, coord, colr);
+        createPoint(vertices, colors, coord, color);
         coord = QVector3D(posInit[i][0] - hauteur, posInit[i][1] + hauteur, posInit[i][2] - hauteur);
-        createPoint(vertices, colors, coord, colr);
+        createPoint(vertices, colors, coord, color);
         coord = QVector3D(posInit[i][0] + hauteur, posInit[i][1] + hauteur, posInit[i][2] - hauteur);
-        createPoint(vertices, colors, coord, colr);
+        createPoint(vertices, colors, coord, color);
         coord = QVector3D(posInit[i][0] + hauteur, posInit[i][1] - hauteur, posInit[i][2] - hauteur);
-        createPoint(vertices, colors, coord, colr);
+        createPoint(vertices, colors, coord, color);
 
 
         //face du haut
         coord = QVector3D(posInit[i][0] - hauteur, posInit[i][1] - hauteur, posInit[i][2] + hauteur);
-        createPoint(vertices, colors, coord, colr);
+        createPoint(vertices, colors, coord, color);
         coord = QVector3D(posInit[i][0] - hauteur, posInit[i][1] + hauteur, posInit[i][2] + hauteur);
-        createPoint(vertices, colors, coord, colr);
+        createPoint(vertices, colors, coord, color);
         coord = QVector3D(posInit[i][0] + hauteur, posInit[i][1] - hauteur, posInit[i][2] + hauteur);
-        createPoint(vertices, colors, coord, colr);
+        createPoint(vertices, colors, coord, color);
         coord = QVector3D(posInit[i][0] + hauteur, posInit[i][1] + hauteur, posInit[i][2] + hauteur);
-        createPoint(vertices, colors, coord, colr);
+        createPoint(vertices, colors, coord, color);
 
         //face du gauche
         coord = QVector3D(posInit[i][0] - hauteur, posInit[i][1] - hauteur, posInit[i][2] - hauteur);
-        createPoint(vertices, colors, coord, colr);
+        createPoint(vertices, colors, coord, color);
         coord = QVector3D(posInit[i][0] - hauteur, posInit[i][1] + hauteur, posInit[i][2] - hauteur);
-        createPoint(vertices, colors, coord, colr);
+        createPoint(vertices, colors, coord, color);
         coord = QVector3D(posInit[i][0] - hauteur, posInit[i][1] + hauteur, posInit[i][2] + hauteur);
-        createPoint(vertices, colors, coord, colr);
+        createPoint(vertices, colors, coord, color);
         coord = QVector3D(posInit[i][0] - hauteur, posInit[i][1] - hauteur, posInit[i][2] + hauteur);
-        createPoint(vertices, colors, coord, colr);
+        createPoint(vertices, colors, coord, color);
 
         //face du droite
         coord = QVector3D(posInit[i][0] + hauteur, posInit[i][1] - hauteur, posInit[i][2] - hauteur);
-        createPoint(vertices, colors, coord, colr);
+        createPoint(vertices, colors, coord, color);
         coord = QVector3D(posInit[i][0] + hauteur, posInit[i][1] + hauteur, posInit[i][2] - hauteur);
-        createPoint(vertices, colors, coord, colr);
+        createPoint(vertices, colors, coord, color);
         coord = QVector3D(posInit[i][0] + hauteur, posInit[i][1] + hauteur, posInit[i][2] + hauteur);
-        createPoint(vertices, colors, coord, colr);
+        createPoint(vertices, colors, coord, color);
         coord = QVector3D(posInit[i][0] + hauteur, posInit[i][1] - hauteur, posInit[i][2] + hauteur);
-        createPoint(vertices, colors, coord, colr);
+        createPoint(vertices, colors, coord, color);
 
 
         //face du devant
         coord = QVector3D(posInit[i][0] - hauteur, posInit[i][1] + hauteur, posInit[i][2] + hauteur);
-        createPoint(vertices, colors, coord, colr);
+        createPoint(vertices, colors, coord, color);
         coord = QVector3D(posInit[i][0] - hauteur, posInit[i][1] + hauteur, posInit[i][2] - hauteur);
-        createPoint(vertices, colors, coord, colr);
+        createPoint(vertices, colors, coord, color);
         coord = QVector3D(posInit[i][0] + hauteur, posInit[i][1] + hauteur, posInit[i][2] - hauteur);
-        createPoint(vertices, colors, coord, colr);
+        createPoint(vertices, colors, coord, color);
         coord = QVector3D(posInit[i][0] + hauteur, posInit[i][1] + hauteur, posInit[i][2] + hauteur);
-        createPoint(vertices, colors, coord, colr);
+        createPoint(vertices, colors, coord, color);
 
         //face du derriere
         coord = QVector3D(posInit[i][0] - hauteur, posInit[i][1] - hauteur, posInit[i][2] + hauteur);
-        createPoint(vertices, colors, coord, colr);
+        createPoint(vertices, colors, coord, color);
         coord = QVector3D(posInit[i][0] + hauteur, posInit[i][1] - hauteur, posInit[i][2] + hauteur);
-        createPoint(vertices, colors, coord, colr);
+        createPoint(vertices, colors, coord, color);
         coord = QVector3D(posInit[i][0] + hauteur, posInit[i][1] - hauteur, posInit[i][2] - hauteur);
-        createPoint(vertices, colors, coord, colr);
+        createPoint(vertices, colors, coord, color);
         coord = QVector3D(posInit[i][0] - hauteur, posInit[i][1] - hauteur, posInit[i][2] - hauteur);
-        createPoint(vertices, colors, coord, colr);
+        createPoint(vertices, colors, coord, color);
 
         }
 

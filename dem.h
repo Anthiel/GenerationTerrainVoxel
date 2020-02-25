@@ -27,6 +27,8 @@ public:
     float getMaxElevation();
     float getMinElevation();
     std::vector<float> elevation_map;
+
+    float maxElev;
 private:
     std::vector<std::pair<int, QColor>> color_map;
     unsigned width = 0;

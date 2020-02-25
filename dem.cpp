@@ -59,6 +59,7 @@ void DEM::fromGeotif(QString fileName)
 
     // Close the file
     GDALClose(dataset);
+    maxElev = getMaxElevation();
 */}
 void DEM::fromJpeg(QString fileName)
 {
@@ -80,7 +81,7 @@ void DEM::fromJpeg(QString fileName)
             }
         }
     }
-
+    maxElev = getMaxElevation();
 }
 
 float DEM::getElevationAt(int x, int y)
@@ -90,7 +91,7 @@ float DEM::getElevationAt(int x, int y)
 
 float DEM::getNormalizedElevationAt(int x, int y)
 {
-    return 100*elevation_map[x + y * this->width]/getMaxElevation();
+    return 100*elevation_map[x + y * this->width]/maxElev;
 }
 
 QColor DEM::getColorFromElevation(float elevation)

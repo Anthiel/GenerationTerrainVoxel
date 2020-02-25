@@ -91,19 +91,23 @@ void GLArea::initializeGL()
 void GLArea::makeGLObjects()
 {
     //les objets - Point segment
-    /*MyObjects.push_back(new gl_point({0.0, 0.0, 0.0}, {1.0, 1.0, 0.0}, 0.1, true));*/
+    //MyObjects.push_back(new gl_point({0.0, 0.0, 0.0}, {1.0, 1.0, 0.0}, 0.1, true));
 
-    for(int i = 0; i < 50; i++){
-        for(int j = 0; j < 50; j++){
-            float elev = int(dem->getNormalizedElevationAt(i+155,j+155));
-            MyObjects.push_back(new gl_point({i/10.0f, elev/10.0f, j/10.0f}, {1.0, 1.0f - elev/10.0f, elev/10.0f}, 0.05, true));
-            if(elev > 0){
+    std::vector<QVector3D> pos;
+
+    for(int i = 0; i < 500; i++){
+        for(int j = 0; j < 500; j++){
+            float elev = int(dem->getNormalizedElevationAt(i,j));
+            pos.push_back({i/10.0f, elev/10.0f, j/10.0f});
+           /* if(elev > 0){
                 for(float k = elev; k > 0; k--){
-                    MyObjects.push_back(new gl_point({i/10.0f, k/10.0f, j/10.0f}, {1.0, 1.0f - k/10.0f, k/10.0f}, 0.05, true));
+                    pos.push_back({i/10.0f, k/10.0f, j/10.0f});
                 }
-            }
+            }*/
         }
     }
+    MyObjects.push_back(new gl_point(pos, {1.0, 1.0, 0.0}, 0.05, true));
+
 
     //création des objets GL
     for(int i = 0; i < MyObjects.size(); i++)
@@ -137,7 +141,7 @@ void GLArea::paintGL()
     QMatrix4x4 matrix;
 
     GLfloat hr = m_radius, wr = hr * m_ratio;
-    matrix.frustum(-wr, wr, -hr, hr, 1.0, 10.0);
+    matrix.frustum(-wr, wr, -hr, hr, 1.0, 50.0);
 
     matrix.translate(0, 0, -3.0);
 

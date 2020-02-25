@@ -12,7 +12,7 @@
 class gl_point : public myGlObject
 {
 public:
-    gl_point(QVector3D pos, QVector3D color, double h, bool isDisplay);
+    gl_point(std::vector<QVector3D> pos, QVector3D color, double h, bool isDisplay);
     void setPositionPoint(QVector3D pos) override;
     void setDisplay(bool mode) override;
 
@@ -20,6 +20,7 @@ public:
     void createPoint(std::vector<GLfloat> &vertices, std::vector<GLfloat> &colors,
                                 QVector3D coord, QVector3D couleur) override;
     void createGlObject() override;
+
     void display(QOpenGLShaderProgram &m_program) override;
     void tearGLObjects() override;
 
@@ -34,7 +35,7 @@ public:
     int nbPointControl = 8; // 8 points dans un cube
     int division = 12; // 12 triangles dans un cube
 
-    QVector3D posInit {0.0, 0.0, 0.0};
+    std::vector<QVector3D> posInit;
     QVector3D colr {1.0, 1.0, 1.0};
     double hauteur = 0.02;
 };

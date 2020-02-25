@@ -30,10 +30,10 @@ public:
     bool displayIt = true;
 
 
-    int type = GL_TRIANGLES;
-    int nbPointStructure = 3; //pour un triangle : 3 points necessaires
+    int type = GL_QUADS;
+    int nbPointStructure = 4; //pour un triangle : 3 points necessaires
     int nbPointControl = 8; // 8 points dans un cube
-    int division = 12; // 12 triangles dans un cube
+    int division = 6; // 12 triangles dans un cube
 
     std::vector<QVector3D> posInit;
     QVector3D colr {1.0, 1.0, 1.0};

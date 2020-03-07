@@ -90,8 +90,8 @@ void GLArea::initializeGL()
 
 void GLArea::makeGLObjects()
 {
-    //les objets - Point segment
-    //MyObjects.push_back(new gl_point({0.0, 0.0, 0.0}, {1.0, 1.0, 0.0}, 0.1, true));
+    //les objets - cube
+
     int taille = 250;
     std::vector<std::vector<QVector3D>> pos(taille, std::vector<QVector3D>(taille,{0.0,0.0,0.0}));
 
@@ -99,11 +99,7 @@ void GLArea::makeGLObjects()
         for(int j = 0; j < taille; j++){
             float elev = int(dem->getNormalizedElevationAt(i,j));
             pos[i][j] = {i/10.0f, elev/10.0f, j/10.0f};
-           /*if(elev > 0){
-                for(float k = elev; k > 0; k--){
-                    pos.push_back({i/10.0f, k/10.0f, j/10.0f});
-                }
-            }*/
+
         }
     }
     MyObjects.push_back(new gl_point(pos, {1.0, 1.0, 0.0}, 0.05, true));
